@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EnergyApp.MainPage"
+             Title="Mercato Libero - Work In Progress">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*" Padding="1" Margin="5">
+            <CollectionView x:Name="OfferteCollectionView"
+                            HeightRequest="800" HorizontalOptions="FillAndExpand"
+                            ItemsSource="{Binding ListaOfferte}" 
+                            VerticalScrollBarVisibility="Always">
+                <CollectionView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Picker x:Name="TipoMercatoPicker" Title="Tipo Mercato" WidthRequest="130" Margin="5" SelectedIndexChanged="TipoMercatoPicker_SelectedIndexChanged">
+                            <Picker.Items>
+                                <x:String>01: Elettrico</x:String>
+                                <x:String>02: Gas</x:String>
+                                <x:String>03: Dual</x:String>
+                            </Picker.Items>
+                        </Picker>                        
+                        <Picker x:Name="TipoClientePicker" Title="Tipo Cliente" WidthRequest="130" Margin="5" SelectedIndexChanged="TipoClientePicker_SelectedIndexChanged">
+                            <Picker.Items>
+                                <x:String>01: Domestico</x:String>
+                                <x:String>03: Altri Usi</x:String>
+                                <x:String>04: Condomini</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Picker x:Name="TipoOffertaPicker" Title="Tipo Offerta" WidthRequest="130" Margin="5" SelectedIndexChanged="TipoOffertaPicker_SelectedIndexChanged">
+                            <Picker.Items>
+                                <x:String>01: Fisso</x:String>
+                                <x:String>02: Variabile</x:String>
+                                <x:String>03: Misto</x:String>
+                                <x:String>04: Altro</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <SearchBar x:Name="NomeOffertaTextBox" Placeholder="Cerca offerta..." TextChanged="NomeOffertaTextBox_TextChanged" />
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="5" Padding="5" Stroke="LightGray" StrokeThickness="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout Margin="5" Padding="0" Spacing="0">
+                                <Label Text="{Binding DettaglioOfferta.NomeOfferta}" 
+                                       FontAttributes="Bold" FontSize="16" />
+                                <Label Text="{Binding IdentificativiOfferta.CodOfferta}" 
+                                       FontSize="14" />
+                                <Label Text="{Binding DettaglioOfferta.Descrizione}" 
+                                       FontSize="12" TextColor="Gray" />
+                                <Label Text="{Binding PrezzoEnergia}" 
+                                       FontSize="12" TextColor="Green" />
+                                <Label Text="{Binding StimaPrezzo}" HorizontalOptions="End" HorizontalTextAlignment="End" FontSize="20" TextColor="Red" />
+                                <Label Text="{Binding ValiditaOffertaRange}" Grid.Row="1" Grid.Column="2" FontSize="20" TextColor="Yellow" HorizontalOptions="End" VerticalOptions="Start" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
