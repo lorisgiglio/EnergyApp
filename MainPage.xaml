@@ -17,7 +17,7 @@
                                 <x:String>02: Gas</x:String>
                                 <x:String>03: Dual</x:String>
                             </Picker.Items>
-                        </Picker>                        
+                        </Picker>
                         <Picker x:Name="TipoClientePicker" Title="Tipo Cliente" WidthRequest="130" Margin="5" SelectedIndexChanged="TipoClientePicker_SelectedIndexChanged">
                             <Picker.Items>
                                 <x:String>01: Domestico</x:String>
@@ -43,8 +43,18 @@
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
                             <VerticalStackLayout Margin="5" Padding="0" Spacing="0">
-                                <Label Text="{Binding DettaglioOfferta.NomeOfferta}" 
-                                       FontAttributes="Bold" FontSize="16" />
+                                <HorizontalStackLayout Spacing="10" >
+                                    <!-- Label aligned to the left -->
+                                    <Label Text="{Binding DettaglioOfferta.NomeOfferta}" FontAttributes="Bold" FontSize="16" VerticalOptions="Start" />
+
+                                    <!-- Label aligned to the right -->
+                                    <Label Text="{Binding DettaglioOfferta.Contatti.UrlSitoVenditore}" TextColor="LightBlue" VerticalOptions="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding OpenUrlCommand}" CommandParameter="{Binding DettaglioOfferta.Contatti.UrlSitoVenditore}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </HorizontalStackLayout>
+
                                 <Label Text="{Binding IdentificativiOfferta.CodOfferta}" 
                                        FontSize="14" />
                                 <Label Text="{Binding DettaglioOfferta.Descrizione}" 
