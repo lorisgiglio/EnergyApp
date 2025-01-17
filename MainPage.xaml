@@ -4,14 +4,14 @@
              x:Class="EnergyApp.MainPage"
              Title="Mercato Libero - Work In Progress">
     <ContentPage.Content>
-        <Grid RowDefinitions="Auto,*" Padding="1" Margin="5">
+        <Grid RowDefinitions="Auto,*" Padding="0" Margin="3">
             <CollectionView x:Name="OfferteCollectionView"
                             HeightRequest="800" HorizontalOptions="FillAndExpand"
                             ItemsSource="{Binding ListaOfferte}" 
                             VerticalScrollBarVisibility="Always">
                 <CollectionView.Header>
                     <StackLayout Orientation="Horizontal">
-                        <Picker x:Name="TipoMercatoPicker" Title="Tipo Mercato" WidthRequest="130" Margin="5" SelectedIndexChanged="TipoMercatoPicker_SelectedIndexChanged">
+                        <Picker x:Name="TipoMercatoPicker" Title="Tipo Mercato" WidthRequest="130" Margin="3" SelectedIndexChanged="TipoMercatoPicker_SelectedIndexChanged">
                             <Picker.Items>
                                 <x:String>01: Elettrico</x:String>
                                 <x:String>02: Gas</x:String>
@@ -38,11 +38,11 @@
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border Margin="5" Padding="5" Stroke="LightGray" StrokeThickness="1">
+                        <Border Margin="3" Padding="3" Stroke="LightGray" StrokeThickness="1">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
-                            <VerticalStackLayout Margin="5" Padding="0" Spacing="0">
+                            <VerticalStackLayout Margin="3" Padding="0" Spacing="0">
                                 <HorizontalStackLayout Spacing="10" >
                                     <!-- Label aligned to the left -->
                                     <Label Text="{Binding DettaglioOfferta.NomeOfferta}" FontAttributes="Bold" FontSize="16" VerticalOptions="Start" />
