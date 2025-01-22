@@ -86,7 +86,16 @@ namespace EnergyApp
             var x = FilterData(offerteAsync, TipoCliente, TipoOfferta, TipoMercato, FilterNomeOfferta, null);
             if (offerteAsync != null)
             {
-                OfferteCollectionView.ItemsSource = new ObservableCollection<Offerta>(x.OrderBy(x => x.StimaPrezzo));
+                switch (OrdinaOffertaPicker.SelectedIndex)
+                {
+                    case 0:
+                    case -1:
+                        OfferteCollectionView.ItemsSource = new ObservableCollection<Offerta>(x.OrderBy(x => x.StimaPrezzo));
+                        break;
+                    case 1:
+                        OfferteCollectionView.ItemsSource = new ObservableCollection<Offerta>(x.OrderByDescending(x => x.ValiditaOfferta.DataInizio));
+                        break;
+                }
             }
         }
         private async Task<string> FetchXml(DateTime d)
@@ -128,6 +137,10 @@ namespace EnergyApp
             Reload();
         }
         private void NomeOffertaTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Reload();
+        }
+        private void OrdinaOffertaPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             Reload();
         }

@@ -33,6 +33,14 @@
                                 <x:String>04: Altro</x:String>
                             </Picker.Items>
                         </Picker>
+                        <Picker x:Name="OrdinaOffertaPicker" SelectedIndex="1" Title="Ordine Offerta" WidthRequest="130" Margin="5" SelectedIndexChanged="OrdinaOffertaPicker_SelectedIndexChanged">
+                            <Picker.Items>
+                                <x:String>01: Stima Prezzo</x:String>
+                                <x:String>02: Più recenti</x:String>
+                                <x:String>03: tariffa F1</x:String>
+                                <x:String>04: tariffa F2</x:String>
+                            </Picker.Items>
+                        </Picker>
                         <SearchBar x:Name="NomeOffertaTextBox" Placeholder="Cerca offerta..." TextChanged="NomeOffertaTextBox_TextChanged" />
                     </StackLayout>
                 </CollectionView.Header>
