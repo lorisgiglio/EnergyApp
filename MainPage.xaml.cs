@@ -1,7 +1,6 @@
 ﻿using EnergyApp.src;
 using OfferteMercatoLibero;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Xml.Serialization;
 
 namespace EnergyApp
