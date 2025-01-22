@@ -59,22 +59,24 @@ namespace EnergyApp
         private IEnumerable<Offerta>? FilterData(ListaOfferteMercatoLibero? lista, string? TipoCliente, string? TipoOfferta, string? TipoMercato, string? FilterNomeOfferta, ZoneOfferta? zonaOfferta)
         {
             if (lista == null) { return null; }
-            var x = lista.Offerte.Where(x => x.DettaglioOfferta.TipoCliente == TipoCliente
+
+            var x = lista.Offerte.Where(
+                                        x => x.DettaglioOfferta.TipoCliente == TipoCliente
                                      && x.DettaglioOfferta.TipoOfferta == TipoOfferta
                                      && x.DettaglioOfferta.TipoMercato == TipoMercato
-                                     && x.ZoneOfferta is not null
-                                     && (x.ZoneOfferta.Comune.Contains("10091")
+                                     //&& (x.ZoneOfferta is null)
+                                     && (x.ZoneOfferta is not null && (x.ZoneOfferta.Comune.Contains("10091")
                                      || x.ZoneOfferta.Provincia.Contains("001")
-                                     || x.ZoneOfferta.Regioni.Contains("01")));
+                                     || x.ZoneOfferta.Regioni.Contains("01")))
+                                     );
 
             if (FilterNomeOfferta is not null && FilterNomeOfferta.Length > 0)
             {
-                return x.Where(y => y.DettaglioOfferta.NomeOfferta.Contains(FilterNomeOfferta, StringComparison.CurrentCultureIgnoreCase));
+                var res = x.Where(y => y.DettaglioOfferta.NomeOfferta.Contains(FilterNomeOfferta, StringComparison.CurrentCultureIgnoreCase)
+                                 || y.IdentificativiOfferta.CodOfferta.Contains(FilterNomeOfferta, StringComparison.CurrentCultureIgnoreCase));
+                return res;
             }
             return x;
-
-
-
         }
         private void Reload()
         {

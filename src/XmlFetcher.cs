@@ -30,6 +30,10 @@ namespace EnergyApp.src
             string fullOutputPath = Path.Combine(FileSystem.AppDataDirectory, outputFileName);
             File.Delete(fullOutputPath);
 
+            // Ignore SSL certificate errors
+            ServicePointManager.ServerCertificateValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+
+
             using (WebClient client = new())
             {
                 try
