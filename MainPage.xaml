@@ -70,7 +70,7 @@
                                 <Label Text="{Binding PrezzoEnergia}" 
                                        FontSize="12" TextColor="Green" />
                                 <Label Text="{Binding StimaPrezzo}" HorizontalOptions="End" HorizontalTextAlignment="End" FontSize="20" TextColor="Red" />
-                                <Label Text="{Binding ValiditaOffertaRange}" Grid.Row="1" Grid.Column="2" FontSize="20" TextColor="Yellow" HorizontalOptions="End" VerticalOptions="Start" />
+                                <Label Text="{Binding ValiditaOffertaRange}" Grid.Row="1" Grid.Column="2" FontSize="10" TextColor="DarkGreen" HorizontalOptions="End" VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>

@@ -128,7 +128,7 @@ namespace OfferteMercatoLibero
         {
             get
             {
-                return "string.Empty";
+                return string.Format("valido dal {0} al {1}",ValiditaOfferta.DataInizio.Replace("_"," "), ValiditaOfferta.DataFine.Replace("_", " "));
             }
 
         }
