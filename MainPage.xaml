@@ -45,7 +45,7 @@
                     </StackLayout>
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="models:Offerta">
                         <Border Margin="3" Padding="3" Stroke="LightGray" StrokeThickness="1">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10" />
@@ -70,7 +70,7 @@
                                 <Label Text="{Binding PrezzoEnergia}" 
                                        FontSize="12" TextColor="Green" />
                                 <Label Text="{Binding StimaPrezzo}" HorizontalOptions="End" HorizontalTextAlignment="End" FontSize="20" TextColor="Red" />
-                                <Label Text="{Binding ValiditaOffertaRange}" Grid.Row="1" Grid.Column="2" FontSize="10" TextColor="DarkGreen" HorizontalOptions="End" VerticalOptions="Start" />
+                                <Label Text="{Binding ValiditaOffertaRange}" FontSize="10" TextColor="DarkGreen" HorizontalOptions="End" VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
